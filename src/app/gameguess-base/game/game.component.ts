@@ -18,6 +18,7 @@ export class GameComponent {
             for (let index = 1; index < csvToRowArray.length - 1; index++) {
               let row = csvToRowArray[index].split(",");
               this.userArray.push(new Game(parseInt( row[0], 10), row[1], row[2].trim(), row[4], row[5]));
+              
             }
             console.log(this.userArray);
         },
