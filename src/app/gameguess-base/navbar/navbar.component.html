@@ -1,17 +1,28 @@
 <mat-toolbar color="basic" class="mat-elevation-z10">
-
-    <span routerLink=""><mat-icon>videogame_asset</mat-icon>GameGuess</span>
-
+    
+    <a routerLink=""><img class="logo" [src]="logoPath" /></a>
+    <a class="logo-txt" mat-button routerLink=""> <b>G</b>ame<b>G</b>uess</a>
     <div class="spacer"></div>
 
     <a mat-raised-button color="warn" routerLink=""><mat-icon>gamepad</mat-icon>Play</a>
     <div class="spacer"></div>
-    <a mat-button routerLink="leaderboard"><mat-icon>star</mat-icon>Leaderboard</a>
-    <a mat-button routerLink="about"><mat-icon>info</mat-icon>About</a>
-    <button
+    
+    <a routerLink="leaderboard"><img class="other-icons" [src]="leaderboardPath" /></a>
+    <a mat-button routerLink="leaderboard">Leaderboard</a>
+
+    <a routerLink="about"><img class="other-icons" [src]="aboutPath" /></a>
+    <a mat-button routerLink="about">About</a>
+
+    <!--<mat-icon>info</mat-icon>-->
+    <!--<button
     mat-raised-button
     disabled
     disabledInteractive
-    matTooltip="Unavailable">Login</button>
-
+    matTooltip="Unavailable">Login</button>-->
 </mat-toolbar>
+
+
+<div class="username">
+    <!--<input [(ngModel)]="_gameService.username"/>-->
+    <p class="username-bg"><img class="cool-size" [src]="cool" /> {{_gameService.username}}</p>
+</div>

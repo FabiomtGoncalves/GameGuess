@@ -1,7 +1,32 @@
-<p>game works!</p>
-<h3>ASDASDASD</h3>
+<meta charset="UTF-8">
 
-<br>
-<li *ngFor="let user of userArray">
-    {{user | json}}
- </li>
+
+
+<!--<li *ngFor="let game of gameArray">
+    {{game | json}}
+ </li>-->
+
+ <div class="grid-container">
+    <div class="left">
+      <div class="container">
+         <div class="parent">
+            <img class="image1" [src]="glitchPath" /> 
+            <img class="image2" [src]="imagePath" />
+          </div>
+            
+         <div *ngIf="!hideGameInfo" class="centered">
+            <p class="date">{{_gamesService.rndGame.releaseDate}}</p>
+            <p class="team">{{_gamesService.rndGame.team}}</p>
+            <!--<p>{{_gamesService.rndGame.genre}}</p>-->
+            <p class="rating-txt"><img class="rating" [src]="ratingStar" /> {{_gamesService.rndGame.rating}}</p> 
+            
+         </div>
+       </div>
+    </div>
+    <div class="right">
+      <br/><br/><br/><br/><br/><br/>
+      <p>User: {{_gamesService.username}}</p>
+      <button mat-raised-button color="warn" (click)="checkLetter()">Check</button>
+      <!--<button mat-raised-button color="primary" (click)="playAudio()">Play Audio</button>-->
+  </div>
+

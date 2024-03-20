@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-game',
@@ -8,40 +8,33 @@ import { HttpClient } from "@angular/common/http";
 })
 export class GameComponent {
 
-  
-  public userArray: Game[] = [];
-  constructor(private http: HttpClient){
-    this.http.get('assets/steam.csv', {responseType: 'text'})
-    .subscribe(
-        data => {
-            let csvToRowArray = data.split("\n");
-            for (let index = 1; index < csvToRowArray.length - 1; index++) {
-              let row = csvToRowArray[index].split(",");
-              this.userArray.push(new Game(parseInt( row[0], 10), row[1], row[2].trim(), row[4], row[5]));
-              
-            }
-            console.log(this.userArray);
-        },
-        error => {
-            console.log(error);
-        }
-    );
+  imagePath: string = "assets/retrogaming-bg.png";
+  ratingStar: string = "assets/star.png";
+  glitchPath: string = "assets/static.gif";
+  wrongSound: string = "assets/wrong-sound.mp3";
+  rightSound: string = "assets/static.gif";
+
+  hideGameInfo: boolean = false;
+
+  constructor(public _gamesService: GamesService){
   }
-  
+
+  checkLetter(){
+    this.playAudio(this.wrongSound);
+    this.glitchPath="assets/wrong.png"
+    this.hideGameInfo = true;
+      setInterval(() => {
+        this.glitchPath="assets/static.gif"
+        this.hideGameInfo = false;
+      }, 2000);
+  }
+
+  playAudio(audioLink: string){
+    let audio = new Audio();
+    audio.src = audioLink;
+    audio.load();
+    audio.play();
+  }
+
 }
 
-export class Game{
-  appid: number;
-  name: String;
-  releaseDate: String;
-  developer: String;
-  publisher: String;
-
-  constructor(id: number, name: String, lastName: String, developer: String, publisher: String){
-    this.appid = id;
-    this.name = name;
-    this.releaseDate = lastName;
-    this.developer = developer;
-    this.publisher = publisher;
-  }
-}
