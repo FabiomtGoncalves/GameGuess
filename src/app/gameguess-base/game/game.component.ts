@@ -10,18 +10,19 @@ export class GameComponent {
 
   imagePath: string = "assets/retrogaming-bg.png";
   ratingStar: string = "assets/star.png";
+  date: string = "assets/clock.png";
   glitchPath: string = "assets/static.gif";
-  wrongSound: string = "assets/wrong-sound.mp3";
-  rightSound: string = "assets/static.gif";
+
+  wrongSound: string = "assets/sounds/wrong-sound.mp3";
+  rightSound: string = "assets/sounds/right-sound.mp3";
 
   hideGameInfo: boolean = false;
 
-  constructor(public _gamesService: GamesService){
-  }
+  constructor(public _gamesService: GamesService) { }
 
   checkLetter(){
-    this.playAudio(this.wrongSound);
-    this.glitchPath="assets/wrong.png"
+    this.playAudio(this.rightSound);
+    this.glitchPath="assets/right.png"
     this.hideGameInfo = true;
       setInterval(() => {
         this.glitchPath="assets/static.gif"
@@ -30,10 +31,12 @@ export class GameComponent {
   }
 
   playAudio(audioLink: string){
-    let audio = new Audio();
-    audio.src = audioLink;
-    audio.load();
-    audio.play();
+    if(this._gamesService.soundSetting == "ON"){
+      let audio = new Audio();
+      audio.src = audioLink;
+      audio.load();
+      audio.play();
+    }
   }
 
 }

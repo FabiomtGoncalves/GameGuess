@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
-a, p{
+a, p, h2, button{
     font-family: "Pixelify Sans", sans-serif;
     font-size: 25px;
 }
 
 *{
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .spacer{
@@ -54,4 +53,28 @@ a, p{
 
 .cool-size{
     width: 16px;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+.options{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+}
+
+.small-txt{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+hr{
+    border-top: 1px solid black;
+}
+
+
+.pad{
+    padding-left: 3%;
 }

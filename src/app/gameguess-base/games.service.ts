@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import * as XLSX from 'xlsx';
+import { MatDialog } from '@angular/material/dialog';
+import { AboutComponent } from "./about/about.component";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class GamesService {
   public rndGame: Game = new Game("", "", "", "", "", "", "");
   rndNum: number = 0;
   public username : string = "Fábio";
+  public soundSetting: string = "ON";
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private dialog: MatDialog) { 
     this.http.get('assets/games.csv', {responseType: 'text'})
     .subscribe(
         data => {
@@ -33,6 +35,10 @@ export class GamesService {
             console.log(error);
         }
     );
+  }
+
+  openPopup() {
+    this.dialog.open(AboutComponent);
   }
 
 }

@@ -8,7 +8,6 @@
     user-select: none;
 }
 
-
 .grid-container{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -46,18 +45,21 @@ img{
 
 .rating-txt{
     color: yellow;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
 }
 
 .rating {
-    width: 20px;
+    width: 16px;
 }
 
 .date{
-    color: #74b3dc;
+    color: #006df3;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
 }
 
 .team{
     color: orange;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
 }
 
 .parent {

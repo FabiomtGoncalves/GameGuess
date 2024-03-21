@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 
+<div>
 
 
 <!--<li *ngFor="let game of gameArray">
@@ -15,7 +16,7 @@
           </div>
             
          <div *ngIf="!hideGameInfo" class="centered">
-            <p class="date">{{_gamesService.rndGame.releaseDate}}</p>
+            <p class="date"><img class="rating" [src]="date" /> {{_gamesService.rndGame.releaseDate}}</p>
             <p class="team">{{_gamesService.rndGame.team}}</p>
             <!--<p>{{_gamesService.rndGame.genre}}</p>-->
             <p class="rating-txt"><img class="rating" [src]="ratingStar" /> {{_gamesService.rndGame.rating}}</p> 
@@ -29,4 +30,4 @@
       <button mat-raised-button color="warn" (click)="checkLetter()">Check</button>
       <!--<button mat-raised-button color="primary" (click)="playAudio()">Play Audio</button>-->
   </div>
-
+</div>

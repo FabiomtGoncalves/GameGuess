@@ -13,6 +13,10 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -32,6 +36,9 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatRadioModule,
   ],
   exports: [
     GameComponent,
