@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -18,16 +18,40 @@ export class GameComponent {
 
   hideGameInfo: boolean = false;
 
-  constructor(public _gamesService: GamesService) { }
+  letterGuess: string = "";
 
-  checkLetter(){
-    this.playAudio(this.rightSound);
-    this.glitchPath="assets/right.png"
-    this.hideGameInfo = true;
-      setInterval(() => {
-        this.glitchPath="assets/static.gif"
-        this.hideGameInfo = false;
-      }, 2000);
+  wrongLetters: string[] = [];
+  rightLetters: string[] = [];
+
+  indexNum: number[] = []
+
+  win:string = "L";
+
+  constructor(public _gamesService: GamesService) {
+    for(let i = 0; i < this._gamesService.gameChars.length; i++){
+      this.rightLetters.push("?");
+    }
+   }
+
+  playSound(guess: string){
+    if (guess == "right"){
+      this.playAudio(this.rightSound);
+      this.glitchPath="assets/right.png"
+      this.hideGameInfo = true;
+        setInterval(() => {
+          this.glitchPath="assets/static.gif"
+          this.hideGameInfo = false;
+        }, 2000);
+    } else{
+      this.playAudio(this.wrongSound);
+      this.glitchPath="assets/wrong.png"
+      this.hideGameInfo = true;
+        setInterval(() => {
+          this.glitchPath="assets/static.gif"
+          this.hideGameInfo = false;
+        }, 2000);
+    }
+    
   }
 
   playAudio(audioLink: string){
@@ -38,6 +62,38 @@ export class GameComponent {
       audio.play();
     }
   }
+
+  onSubmitLetter(){
+    console.log(this.letterGuess);
+    const lowercaseGameChars = this._gamesService.gameChars.map(char => char.toLowerCase());
+    if(this.letterGuess.trim() == ""){
+      window.alert("Please enter a letter.");
+    } else{
+      if(lowercaseGameChars.includes(this.letterGuess)){
+        let indexes = lowercaseGameChars.map((elm, idx) => elm == this.letterGuess ? idx : '').filter(String);
+  
+        for(let i = 0; i < indexes.length; i++){
+          let index = String(indexes[i]);
+          this.rightLetters[parseInt(index)] = this.letterGuess;
+        }
+  
+        if(this.rightLetters.toString() == lowercaseGameChars.toString()){
+          this.win = "You Win!";
+        }
+  
+        this.playSound("right");
+  
+      } else {
+        this.playSound("wrong");
+        this.wrongLetters.push(" " + this.letterGuess);
+      }
+    }
+    
+
+    this.letterGuess = "";
+
+  }
+  
 
 }
 

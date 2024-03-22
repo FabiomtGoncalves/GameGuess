@@ -10,12 +10,13 @@ export class GamesService {
 
   public gameArray: Game[] = [];
   public rndGame: Game = new Game("", "", "", "", "", "", "");
+  public gameChars: string[] = [];
   rndNum: number = 0;
-  public username : string = "Fábio";
+  public username : string = "<User>";
   public soundSetting: string = "ON";
 
   constructor(private http: HttpClient, private dialog: MatDialog) { 
-    this.http.get('assets/games.csv', {responseType: 'text'})
+    this.http.get('assets/data/games.csv', {responseType: 'text'})
     .subscribe(
         data => {
             let csvToRowArray = data.split("\n");
@@ -25,20 +26,13 @@ export class GamesService {
             }
             console.log(this.gameArray);
             this.rndNum = Math.floor(Math.random() * this.gameArray.length-1);
-            console.log("random val:" + Math.floor(Math.random() * this.gameArray.length-1));
             this.rndGame = this.gameArray[this.rndNum];
-            console.log("RND GAME: " + this.rndGame.id);
-            console.log("LENGHT: " + csvToRowArray.length
-            );
+            this.gameChars = this.rndGame.title.replace(/\sW/g, "").replace(/\W/g, '').split("");
         },
         error => {
             console.log(error);
         }
     );
-  }
-
-  openPopup() {
-    this.dialog.open(AboutComponent);
   }
 
 }

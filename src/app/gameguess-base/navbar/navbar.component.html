@@ -25,19 +25,20 @@
 </mat-toolbar>
 
 <ng-template #secondDialog>
-    <h2 class="txt-center">Settings</h2>
+    <h2 class="txt-center"><img class="other-icons" [src]="settings" /> Settings</h2>
     <mat-dialog-content>
       <div class="options">
         <hr/>
         <mat-icon>fullscreen</mat-icon>  Fullscreen (<b>Press key 'F11'</b>)<br/>
         <hr/>
 
-        {{soundTxt}}<br/>
+        Sound (<b>{{_gameService.soundSetting}}</b>):<br/>
         <img class="other-icons" [src]="soundOn" />
-        <input type="radio" value="ON" [(ngModel)]="_gameService.soundSetting" (change)="soundChange()"> 
+        <input type="radio" value="ON" [(ngModel)]="_gameService.soundSetting"> 
+        <!--input type="radio" value="ON" [(ngModel)]="_gameService.soundSetting" (change)="soundChange()">-->
         <br/>
         <img class="other-icons" [src]="soundMute" /> 
-        <input type="radio" value="OFF" [(ngModel)]="_gameService.soundSetting" (change)="soundChange()">
+        <input type="radio" value="OFF" [(ngModel)]="_gameService.soundSetting">
         <br/>
         <hr/>
 

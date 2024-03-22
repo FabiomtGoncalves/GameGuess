@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { GameComponent } from './game/game.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -16,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
-
 
 
 @NgModule({
@@ -39,6 +39,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatDialogModule,
     MatSlideToggleModule,
     MatRadioModule,
+    BrowserModule,
   ],
   exports: [
     GameComponent,

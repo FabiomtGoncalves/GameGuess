@@ -4,7 +4,7 @@ import { GamesService } from '../games.service';
 @Component({
   selector: 'app-about',
   template: `
-    <button (click)="openPopup()">Open Popup</button>
+    <h1>About</h1>
   `,
   styleUrl: './about.component.css'
 })
@@ -12,8 +12,6 @@ export class AboutComponent {
 
 constructor(private gameService: GamesService) { }
 
-  openPopup() {
-    this.gameService.openPopup();
-  }
+
 
 }

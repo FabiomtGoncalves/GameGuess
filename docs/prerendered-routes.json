@@ -1,7 +1,6 @@
 {
   "routes": [
     "/",
-    "/about",
     "/leaderboard"
   ]
 }

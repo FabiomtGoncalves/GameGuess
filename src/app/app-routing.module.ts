@@ -14,10 +14,10 @@ const routes: Routes = [
     path: 'leaderboard', 
     component: LeaderboardComponent
   },
-  {
+  /*{
     path: 'about', 
     component: AboutComponent
-  },
+  },*/
   {path: '**', component: PageNotFoundComponent},
 ];
 

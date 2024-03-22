@@ -26,8 +26,21 @@
     </div>
     <div class="right">
       <br/><br/><br/><br/><br/><br/>
-      <p>User: {{_gamesService.username}}</p>
-      <button mat-raised-button color="warn" (click)="checkLetter()">Check</button>
-      <!--<button mat-raised-button color="primary" (click)="playAudio()">Play Audio</button>-->
+      <div class="txt-center">
+         <p>{{_gamesService.rndGame.title}}</p>
+         
+         <form (submit)="onSubmitLetter()">
+            <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off"> 
+         </form>
+
+         <div class="pad">
+            <input type="text" *ngFor="let char of rightLetters" value="{{char}}" [name]=[(char)] readonly> 
+            <br/><p class="x-small">( Letters: {{_gamesService.gameChars.length}} )</p>
+         </div>
+         
+         <p class="wrongLetters" *ngIf="wrongLetters.length > 0" ><b>Wrong Guesses:</b> {{wrongLetters.toString()}}</p>
+         <p>{{win}}</p>
+
+      </div>
   </div>
 </div>

@@ -81,3 +81,36 @@ img{
     left: 0;
     pointer-events: none
 }
+
+
+.txt-center{
+    text-align: center;
+}
+
+@media only screen and (max-device-width: 768px) {
+    html,body { display: none; } 
+}
+
+input{
+    display: inline;
+    text-align: center;
+    width: 5%;
+    box-sizing: border-box;
+}
+
+.answer{
+    border-radius: 10px;
+}
+
+.pad{
+    padding: 5%;
+}
+
+.wrongLetters{
+    color: red;
+    font-size: 17px;
+}
+
+.x-small{
+    font-size: 15px;
+}

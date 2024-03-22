@@ -18,14 +18,12 @@ export class NavbarComponent {
   cool: string = "assets/cool.png";
   soundOn: string = "assets/sound-on.png";
   soundMute: string = "assets/sound-mute.png";
-  soundTxt: string = "Sound [ON]:";
 
   github: string = "assets/github.png";
   githubUrl: string = "https://github.com/FabiomtGoncalves/GameGuess";
 
 
-  constructor(public _gameService : GamesService, private dialog: MatDialog) {
-   }
+  constructor(public _gameService : GamesService, private dialog: MatDialog) { }
 
   @ViewChild('secondDialog', { static: true })
   secondDialog!: TemplateRef<any>;
@@ -34,14 +32,6 @@ export class NavbarComponent {
   }
   openDialogWithoutRef() {
     this.dialog.open(this.secondDialog);
-  }
-
-  soundChange(){
-    if(this._gameService.soundSetting == "ON"){
-      this.soundTxt = "Sound (ON):";
-    } else{
-      this.soundTxt = "Sound (OFF):";
-    }
   }
   
 
