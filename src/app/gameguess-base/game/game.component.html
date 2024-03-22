@@ -27,19 +27,19 @@
     <div class="right">
       <br/><br/><br/><br/><br/><br/>
       <div class="txt-center">
-         <p>{{_gamesService.rndGame.title}}</p>
+         <p><b>Game :</b> {{_gamesService.rndGame.title}}</p>
          
          <form (submit)="onSubmitLetter()">
             <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off"> 
          </form>
 
          <div class="pad">
-            <input type="text" *ngFor="let char of rightLetters" value="{{char}}" [name]=[(char)] readonly> 
+            <input type="text" *ngFor="let letter of rightLetters" value={{letter}} readonly> 
             <br/><p class="x-small">( Letters: {{_gamesService.gameChars.length}} )</p>
          </div>
          
          <p class="wrongLetters" *ngIf="wrongLetters.length > 0" ><b>Wrong Guesses:</b> {{wrongLetters.toString()}}</p>
-         <p>{{win}}</p>
+         <p class="win">{{win}}</p>
 
       </div>
   </div>

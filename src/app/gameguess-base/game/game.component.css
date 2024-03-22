@@ -114,3 +114,7 @@ input{
 .x-small{
     font-size: 15px;
 }
+
+.win{
+    color: green;
+}

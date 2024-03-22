@@ -25,7 +25,7 @@ export class GameComponent {
 
   indexNum: number[] = []
 
-  win:string = "L";
+  win:string = "";
 
   constructor(public _gamesService: GamesService) {
     for(let i = 0; i < this._gamesService.gameChars.length; i++){
