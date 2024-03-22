@@ -34,7 +34,7 @@
          </form>
 
          <div class="pad">
-            <input type="text" *ngFor="let letter of rightLetters" value="?" readonly> 
+            <input type="text" *ngFor="let letter of _gamesService.rightLetters" [value]="letter" readonly> 
             <br/><p class="x-small">( Letters: {{_gamesService.gameChars.length}} )</p>
          </div>
          

@@ -21,16 +21,13 @@ export class GameComponent {
   letterGuess: string = "";
 
   wrongLetters: string[] = [];
-  rightLetters: string[] = [];
 
   indexNum: number[] = []
 
   win:string = "";
 
   constructor(public _gamesService: GamesService) {
-    for(let i = 0; i < this._gamesService.gameChars.length; i++){
-      this.rightLetters.push("?");
-    }
+    
    }
 
   playSound(guess: string){
@@ -74,10 +71,10 @@ export class GameComponent {
   
         for(let i = 0; i < indexes.length; i++){
           let index = String(indexes[i]);
-          this.rightLetters[parseInt(index)] = this.letterGuess;
+          this._gamesService.rightLetters[parseInt(index)] = this.letterGuess;
         }
   
-        if(this.rightLetters.toString() == lowercaseGameChars.toString()){
+        if(this._gamesService.rightLetters.toString() == lowercaseGameChars.toString()){
           this.win = "You Win!";
         }
   

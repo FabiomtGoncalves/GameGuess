@@ -9,7 +9,10 @@ import { AboutComponent } from "./about/about.component";
 export class GamesService {
 
   public gameArray: Game[] = [];
+
   public rndGame: Game = new Game("", "", "", "", "", "", "");
+  public rightLetters: string[] = [];
+
   public gameChars: string[] = [];
   rndNum: number = 0;
   public username : string = "<User>";
@@ -28,6 +31,9 @@ export class GamesService {
             this.rndNum = Math.floor(Math.random() * this.gameArray.length-1);
             this.rndGame = this.gameArray[this.rndNum];
             this.gameChars = this.rndGame.title.replace(/\sW/g, "").replace(/\W/g, '').split("");
+            for(let i = 0; i < this.gameChars.length; i++){
+              this.rightLetters.push("?");
+            }
         },
         error => {
             console.log(error);
