@@ -43,7 +43,7 @@
             <br/><p class="x-small">( Letters: {{_gamesService.gameChars.length}} )</p>
          </div>
          
-         <p class="wrongLetters" *ngIf="wrongLetters.length > 0" ><b>Wrong Guesses:</b> {{wrongLetters.toString()}}</p>
+         <p class="wrongLetters" *ngIf="_gamesService.wrongLetters.length > 0" ><b>Wrong Guesses:</b> {{_gamesService.wrongLetters.toString()}}</p>
          <p class="win">{{win}}</p>
 
       </div>

@@ -12,6 +12,7 @@ export class GamesService {
 
   public rndGame: Game = new Game("", "", "", "", "", "", "");
   public rightLetters: string[] = [];
+  public wrongLetters: string[] = [];
 
   public gameChars: string[] = [];
   rndNum: number = 0;
@@ -34,14 +35,14 @@ export class GamesService {
             this.rndGame = this.gameArray[this.rndNum];
             var spacesCount = this.rndGame.title.replace(/\W/g, " ").split("");
             this.gameChars = this.rndGame.title.replace(/\W/g, "").split("");
-            console.log("GAME CHARS: " + this.gameChars);
+            //console.log("GAME CHARS: " + this.gameChars);
 
             let indexes = spacesCount.map((elm, idx) => elm == " " ? idx : '').filter(String);
   
             for(let i = 0; i < indexes.length; i++){
               let index = String(indexes[i]);
               this.spaces.push(parseInt(index));
-              console.log("SPACES ARRAY: " + this.spaces);
+              //console.log("SPACES ARRAY: " + this.spaces);
               //this._gamesService.rightLetters[parseInt(index)] = this.letterGuess;
             }
 

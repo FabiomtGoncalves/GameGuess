@@ -20,8 +20,6 @@ export class GameComponent {
 
   letterGuess: string = "";
 
-  wrongLetters: string[] = [];
-
   indexNum: number[] = []
 
   win:string = "";
@@ -61,10 +59,16 @@ export class GameComponent {
   }
 
   onSubmitLetter(){
+
     console.log(this.letterGuess);
     const lowercaseGameChars = this._gamesService.gameChars.map(char => char.toLowerCase());
+
     if(this.letterGuess.trim() == ""){
       window.alert("Please enter a letter.");
+
+    } else if (this._gamesService.rightLetters.includes(this.letterGuess) || this._gamesService.wrongLetters.includes(" " + this.letterGuess)){
+      window.alert("You already guessed this letter.");
+
     } else{
       if(lowercaseGameChars.includes(this.letterGuess)){
         let indexes = lowercaseGameChars.map((elm, idx) => elm == this.letterGuess ? idx : '').filter(String);
@@ -82,10 +86,9 @@ export class GameComponent {
   
       } else {
         this.playSound("wrong");
-        this.wrongLetters.push(" " + this.letterGuess);
+        this._gamesService.wrongLetters.push(" " + this.letterGuess);
       }
     }
-    
 
     this.letterGuess = "";
 

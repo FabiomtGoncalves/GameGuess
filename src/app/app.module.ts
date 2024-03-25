@@ -3,8 +3,8 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GameguessBaseModule } from './gameguess-base/gameguess-base.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { GameguessBaseModule } from './gameguess-base/gameguess-base.module';
 
 
 @NgModule({
