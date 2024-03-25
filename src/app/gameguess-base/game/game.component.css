@@ -96,7 +96,7 @@ input{
     text-align: center;
     width: 5%;
     box-sizing: border-box;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 .answer{

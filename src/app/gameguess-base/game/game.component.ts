@@ -61,7 +61,7 @@ export class GameComponent {
   onSubmitLetter(){
 
     console.log(this.letterGuess);
-    const lowercaseGameChars = this._gamesService.gameChars.map(char => char.toLowerCase());
+    const lowercaseGameChars = this._gamesService.gameChars.map(char => char.toUpperCase());
 
     if(this.letterGuess.trim() == ""){
       window.alert("Please enter a letter.");

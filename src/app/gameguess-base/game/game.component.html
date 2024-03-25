@@ -28,7 +28,7 @@
          <p><b>Game :</b> {{_gamesService.rndGame.title}}</p>
          
          <form (submit)="onSubmitLetter()">
-            <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off" oninput="this.value = this.value.toLowerCase()"> 
+            <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off" oninput="this.value = this.value.toUpperCase()"> 
          </form>
 
          <div class="pad" >
