@@ -123,3 +123,40 @@ input{
 .inline{
     display: inline;
 }
+
+.grid-container2 {
+  padding: 10px;
+}
+
+.grid-item {
+  /*background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);*/
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.stats{
+    width: 100px;
+}
+
+.centered-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+}
+
+.column {
+    padding: 5px;
+    display: inline-block;
+}
+
+.btn-playagain{
+    background-color: darkorange;
+}
+
+.bug-fix{
+    font-size: 13px;
+}

@@ -16,13 +16,15 @@ export class GameComponent {
   wrongSound: string = "assets/sounds/wrong-sound.mp3";
   rightSound: string = "assets/sounds/right-sound.mp3";
 
+  health: string = "assets/health.png";
+
   hideGameInfo: boolean = false;
 
   letterGuess: string = "";
 
   indexNum: number[] = []
 
-  win:string = "";
+  isButtonVisible = false;
 
   constructor(public _gamesService: GamesService) {
     
@@ -79,14 +81,25 @@ export class GameComponent {
         }
   
         if(this._gamesService.rightLetters.toString() == lowercaseGameChars.toString()){
-          this.win = "You Win!";
+          //this.win = "You Win!";
+          this._gamesService.score += 1;
+          this._gamesService.nextGame();
         }
   
-        this.playSound("right");
-  
+        this.playSound("right");  
+
+
       } else {
+
+        if(this._gamesService.lives <= 0){
+          window.alert("You lost <restart-game>");
+          this.isButtonVisible = true;
+        }
+
         this.playSound("wrong");
+        this._gamesService.lives -= 1;
         this._gamesService.wrongLetters.push(" " + this.letterGuess);
+
       }
     }
 
