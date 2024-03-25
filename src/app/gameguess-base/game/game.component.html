@@ -1,7 +1,5 @@
 <meta charset="UTF-8">
 
-<div>
-
 
 <!--<li *ngFor="let game of gameArray">
     {{game | json}}
@@ -30,11 +28,18 @@
          <p><b>Game :</b> {{_gamesService.rndGame.title}}</p>
          
          <form (submit)="onSubmitLetter()">
-            <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off"> 
+            <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off" oninput="this.value = this.value.toLowerCase()"> 
          </form>
 
-         <div class="pad">
-            <input type="text" *ngFor="let letter of _gamesService.rightLetters" [value]="letter" readonly> 
+         <div class="pad" >
+            <div class="inline" *ngFor="let letter of _gamesService.rightLetters; index as i">
+               <div class="inline" *ngFor="let space of _gamesService.spaces">
+                  <p *ngIf="space == i"></p>
+               </div>
+               <input type="text" [value]="letter" readonly> 
+            </div>
+            
+      
             <br/><p class="x-small">( Letters: {{_gamesService.gameChars.length}} )</p>
          </div>
          

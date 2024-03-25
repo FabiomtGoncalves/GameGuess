@@ -118,3 +118,7 @@ input{
 .win{
     color: green;
 }
+
+.inline{
+    display: inline;
+}
