@@ -1,0 +1,14 @@
+
+
+<div class="txt-center">
+    <h1 class="title">Game Over</h1>
+    <p><b>The game was: </b></p>
+    <p>{{_gamesService.rndGame.title}}</p>
+    <br>
+    <p><b>Score: </b>{{_gamesService.score}}</p>
+
+    <button [disabled]="_game.btnLeaderboard" (click)="shareLeaderboard()" class="btn-leaderboard">Share on Leaderboard</button>
+    <button (click)="newGame()" class="btn-newgame">New Game</button>
+    
+    <p class="leaderboard-shared-msg">{{leaderboardSuccess}}</p>
+</div>

@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { CommonModule } from '@angular/common';
+import { GameoverComponent } from './gameover/gameover.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CommonModule } from '@angular/common';
     ChatComponent,
     LeaderboardComponent,
     AboutComponent,
+    GameoverComponent,
   ],
   imports: [
     CommonModule,

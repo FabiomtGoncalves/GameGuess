@@ -1,1 +1,43 @@
-<p>leaderboard</p>
+
+<div class="page">
+  <h1 class="title">Leaderboard</h1>
+
+  <br/><br/>
+
+  <div *ngFor="let row of leaderboardArray; index as i">
+
+    <div [ngSwitch]="i">
+      <div *ngSwitchCase="0" class="firstPlace">
+        <img class="trophie1" [src]="first" />
+        <p class="inline">#{{i + 1}}</p>
+        <p class="inline">{{row.user}}</p>
+        <p class="inline">{{row.score}}</p>
+      </div>
+
+      <div *ngSwitchCase="1" class="secondPlace">
+        <img class="trophie2" [src]="second" />
+        <p class="inline">#{{i + 1}}</p>
+        <p class="inline">{{row.user}}</p>
+        <p class="inline">{{row.score}}</p>
+      </div>
+
+      <div *ngSwitchCase="2" class="thirdPlace">
+        <img class="trophie3" [src]="third" />
+        <p class="inline">#{{i + 1}}</p>
+        <p class="inline">{{row.user}}</p>
+        <p class="inline">{{row.score}}</p>
+      </div>
+
+      <div *ngSwitchDefault class="defaultPlace">
+        <p class="inline">#{{i + 1}}</p>
+        <p class="inline">{{row.user}}</p>
+        <p class="inline">{{row.score}}</p>
+      </div>
+    </div>
+    
+    <br/>
+    <hr/>
+    <br/>
+  </div>
+
+</div>

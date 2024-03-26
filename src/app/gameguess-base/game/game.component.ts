@@ -1,5 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { GamesService } from '../games.service';
+import { MatDialog } from '@angular/material/dialog'; 
+import { GameoverComponent } from '../gameover/gameover.component';
+
 
 @Component({
   selector: 'app-game',
@@ -15,6 +18,7 @@ export class GameComponent {
 
   wrongSound: string = "assets/sounds/wrong-sound.mp3";
   rightSound: string = "assets/sounds/right-sound.mp3";
+  loosingSound: string = "assets/sounds/loosing-sound.mp3";
 
   health: string = "assets/health.png";
 
@@ -22,33 +26,15 @@ export class GameComponent {
 
   letterGuess: string = "";
 
-  indexNum: number[] = []
+  btnLeaderboard: boolean = false;
 
-  isButtonVisible = false;
 
-  constructor(public _gamesService: GamesService) {
-    
-   }
+  constructor(public _gamesService: GamesService, private dialogRef: MatDialog) { }
 
-  playSound(guess: string){
-    if (guess == "right"){
-      this.playAudio(this.rightSound);
-      this.glitchPath="assets/right.png"
-      this.hideGameInfo = true;
-        setInterval(() => {
-          this.glitchPath="assets/static.gif"
-          this.hideGameInfo = false;
-        }, 2000);
-    } else{
-      this.playAudio(this.wrongSound);
-      this.glitchPath="assets/wrong.png"
-      this.hideGameInfo = true;
-        setInterval(() => {
-          this.glitchPath="assets/static.gif"
-          this.hideGameInfo = false;
-        }, 2000);
-    }
-    
+  openDialog(){
+    this.dialogRef.open(GameoverComponent, {
+      disableClose: true,
+    });
   }
 
   playAudio(audioLink: string){
@@ -60,9 +46,37 @@ export class GameComponent {
     }
   }
 
+  playSound(guess: string){
+    switch(guess){
+      case "right":
+        this.playAudio(this.rightSound);
+        this.glitchPath="assets/right.png"
+        this.hideGameInfo = true;
+        setInterval(() => {
+          this.glitchPath="assets/static.gif"
+          this.hideGameInfo = false;
+        }, 2000);
+        break;
+      case "wrong":
+        this.playAudio(this.wrongSound);
+        this.glitchPath="assets/wrong.png"
+        this.hideGameInfo = true;
+        setInterval(() => {
+          this.glitchPath="assets/static.gif"
+          this.hideGameInfo = false;
+        }, 2000);
+        break;
+      case "loosing":
+        this.playAudio(this.loosingSound);
+        break;
+    }
+    
+  }
+
+
   onSubmitLetter(){
 
-    console.log(this.letterGuess);
+    //console.log(this.letterGuess);
     const lowercaseGameChars = this._gamesService.gameChars.map(char => char.toUpperCase());
 
     if(this.letterGuess.trim() == ""){
@@ -92,13 +106,15 @@ export class GameComponent {
       } else {
 
         if(this._gamesService.lives <= 0){
-          window.alert("You lost <restart-game>");
-          this.isButtonVisible = true;
-        }
+          this.btnLeaderboard = false;
+          this.openDialog();
+          this.playSound("loosing");
 
-        this.playSound("wrong");
-        this._gamesService.lives -= 1;
-        this._gamesService.wrongLetters.push(" " + this.letterGuess);
+        } else{
+          this.playSound("wrong");
+          this._gamesService.lives -= 1;
+          this._gamesService.wrongLetters.push(" " + this.letterGuess);
+        }
 
       }
     }
@@ -106,6 +122,18 @@ export class GameComponent {
     this.letterGuess = "";
 
   }
+
+
+  /*openDialog(): void { 
+    let dialogRef = this.dialog.open(ExampleDialogComponent, { 
+      width: '250px', 
+      data: { name: this.name, animal: this.animal } 
+    }); 
+  
+    dialogRef.afterClosed().subscribe(result => { 
+      this.animal = result; 
+    }); 
+  } */
   
 
 }

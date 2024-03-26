@@ -1,0 +1,45 @@
+*{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    padding: 10px;
+
+}
+
+.title{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 40px;
+    color: red;
+}
+
+.inline{
+    display: inline;
+    margin: 10px;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+.btn-leaderboard{
+    background-color: green;
+    padding: 10px;
+    color: white;
+}
+
+.btn-newgame{
+    background-color: blue;
+    padding: 10px;
+    color: white;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.leaderboard-shared-msg{
+    color: green;
+    font-size: 15px;
+}

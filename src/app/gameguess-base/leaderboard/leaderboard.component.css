@@ -1,0 +1,61 @@
+*{
+    /*height: 100%;*/
+    /*background: linear-gradient(to right, rgb(170, 100, 137), rgb(60, 16, 83));*/
+    font-family: "Pixelify Sans", sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.title{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 50px;
+}
+
+
+.page{
+    padding-top: 7%;
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+  }
+
+.inline{
+    display: inline;
+    padding: 25px;
+}
+
+.firstPlace{
+    color: goldenrod;
+    font-size: 50px;
+}
+
+.secondPlace{
+    color: silver;
+    font-size: 35px;
+}
+
+.thirdPlace{
+    color: brown;
+    font-size: 30px;
+}
+
+.defaultPlace{
+    color: black;
+    font-size: 20px;
+}
+
+.trophie1{
+    width: 50px;
+}
+
+.trophie2{
+    width: 35px;
+}
+
+.trophie3{
+    width: 30px;
+}

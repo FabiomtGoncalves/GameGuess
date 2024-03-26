@@ -1,7 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AboutComponent } from "./about/about.component";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +7,7 @@ import { AboutComponent } from "./about/about.component";
 export class GamesService {
 
   public gameArray: Game[] = [];
+  public gameArrayCopy: Game[] = [];
 
   public rndGame: Game = new Game("", "", "", "", "", "", "");
   public rightLetters: string[] = [];
@@ -25,14 +24,11 @@ export class GamesService {
   public score: number = 0;
 
   constructor(private http: HttpClient) { 
-    this.startGame();
+    this.readCSV();
   }
 
 
-  // MUDAR O NOME PARA READFILE e esta classe vai apenas gerar o array de jogos uma vez, e dps fazer uma copia desse array e mexer apenas nesse
-  startGame(){
-    this.gameArray = [];
-    this.resetValues();
+  readCSV(){
     this.http.get('assets/data/games.csv', {responseType: 'text'})
     .subscribe(
         data => {
@@ -42,8 +38,8 @@ export class GamesService {
               this.gameArray.push(new Game(row[0], row[1], row[2], row[3], row[4], row[7], row[8]));
             }
             //console.log(this.gameArray);
-            //this.rndNum = Math.floor(Math.random() * this.gameArray.length-1);
-            this.setup();
+            //this.setup();
+            this.newGame();
         },
         error => {
             console.log(error);
@@ -51,22 +47,29 @@ export class GamesService {
     );
   }
 
+
+  newGame(){
+    this.resetValues();
+    this.gameArrayCopy = this.gameArray;
+    this.setup();
+  }
+
+
+
   setup(){
     this.randomNumber();
-    this.rndGame = this.gameArray[this.rndNum];
+    this.rndGame = this.gameArrayCopy[this.rndNum];
     var spacesCount = this.rndGame.title.replace(/\W/g, " ").split("");
     this.gameChars = this.rndGame.title.replace(/\W/g, "").split("");
-    //console.log("GAME CHARS: " + this.gameChars);
 
     let indexes = spacesCount.map((elm, idx) => elm == " " ? idx : '').filter(String);
+
+    var subtract = 0;
   
     for(let i = 0; i < indexes.length; i++){
-      let index = String(indexes[i]);
-      this.spaces.push(parseInt(index));
-      //console.log("SPACES ARRAY: " + this.spaces);
-      //this._gamesService.rightLetters[parseInt(index)] = this.letterGuess;
+      this.spaces.push(parseInt(String(indexes[i]))-subtract);
+      subtract += 1;
     }
-    console.log("SPACES ARRAY: " + this.spaces);
 
     for(let i = 0; i < this.gameChars.length; i++){
       this.rightLetters.push("?");
@@ -76,7 +79,7 @@ export class GamesService {
 
   nextGame(){
     this.resetValues();
-    this.gameArray.splice(this.rndNum, 1);
+    this.gameArrayCopy.splice(this.rndNum, 1);
     this.setup();
   }
 
@@ -93,7 +96,7 @@ export class GamesService {
 
 
   randomNumber(){
-    return this.rndNum = Math.floor(Math.random() * this.gameArray.length-1);
+    return this.rndNum = Math.floor(Math.random() * this.gameArrayCopy.length-1);
   }
 
 

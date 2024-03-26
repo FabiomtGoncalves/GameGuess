@@ -23,22 +23,23 @@
        </div>
     </div>
     <div class="right">
-      <br/><br/><br/>
+      <br/><br/>
 
       <div class="grid-container2">
-         <p class="bug-fix">* fix: bug nos inputs dos espaços entre caracteres (se existir > 1 espaço) *</p>
          <div class="grid-item">
                <div class="column">
                   <div class="container">
                      <img class="stats" [src]="health" /> 
                      <div class="centered-nav">{{_gamesService.lives}}</div>
                    </div>
+                   <p>Lives</p>
                </div>
                <div class="column">
                   <div class="container">
                      <img class="stats" [src]="ratingStar" /> 
                      <div class="centered-nav">{{_gamesService.score}}</div>
                    </div>
+                   <p>Score</p>
                </div>
          </div>
       </div>
@@ -55,9 +56,10 @@
             
             <div class="inline" >
                <ng-container *ngFor="let letter of _gamesService.rightLetters; index as i">
-                  <div class="inline" *ngFor="let space of _gamesService.spaces">
+                  <!--<ng-container class="inline" *ngFor="let space of _gamesService.spaces">
                      <p *ngIf="space == i"></p>
-                  </div>
+                  </ng-container>-->
+                  <p *ngIf="_gamesService.spaces.includes(i)"></p>
                   <input type="text" [value]="letter" readonly> 
                </ng-container>
             </div>
@@ -68,9 +70,6 @@
          
          <p class="wrongLetters" *ngIf="_gamesService.wrongLetters.length > 0" ><b>Wrong Guesses:</b> {{_gamesService.wrongLetters.toString()}}</p>
          
-
-         <button id="btnPlayAgain" *ngIf="this.isButtonVisible" hidden disabled class="btn-playagain">Play again</button> <br><br>
-         <button id="btnLeaderboard" *ngIf="this.isButtonVisible" hidden disabled>Share Score</button>
 
       </div>
   </div>
