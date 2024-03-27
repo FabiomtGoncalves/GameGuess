@@ -164,3 +164,10 @@ input{
 .bug-fix{
     font-size: 13px;
 }
+
+.tv-btn{
+    border-radius: 50px;
+    position: absolute;
+    top: 35%;
+    right: 160px;
+}

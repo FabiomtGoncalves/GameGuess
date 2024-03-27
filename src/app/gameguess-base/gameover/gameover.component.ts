@@ -21,7 +21,8 @@ export class GameoverComponent {
 
   shareLeaderboard(){
     this._game.btnLeaderboard = true;
-    this.leaderboardSuccess = "Your score was shared on the leaderboard!"
+    //this.leaderboardSuccess = "Your score was shared on the leaderboard!"
+    this.leaderboardSuccess = "Leaderboard currently unavailable."
   }
 
   newGame(){

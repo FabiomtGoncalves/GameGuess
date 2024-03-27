@@ -59,3 +59,12 @@
 .trophie3{
     width: 30px;
 }
+
+.searchUser{
+    text-align: center;
+}
+
+.unavailable{
+    color: red;
+    font: 15px;
+}

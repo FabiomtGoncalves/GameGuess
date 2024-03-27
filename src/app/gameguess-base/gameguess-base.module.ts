@@ -19,7 +19,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CommonModule } from '@angular/common';
 import { GameoverComponent } from './gameover/gameover.component';
 
-
 @NgModule({
   declarations: [
     GameComponent,

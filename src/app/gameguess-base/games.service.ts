@@ -49,12 +49,11 @@ export class GamesService {
 
 
   newGame(){
+    this.score = 0;
     this.resetValues();
     this.gameArrayCopy = this.gameArray;
     this.setup();
   }
-
-
 
   setup(){
     this.randomNumber();

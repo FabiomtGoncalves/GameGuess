@@ -122,18 +122,6 @@ export class GameComponent {
     this.letterGuess = "";
 
   }
-
-
-  /*openDialog(): void { 
-    let dialogRef = this.dialog.open(ExampleDialogComponent, { 
-      width: '250px', 
-      data: { name: this.name, animal: this.animal } 
-    }); 
-  
-    dialogRef.afterClosed().subscribe(result => { 
-      this.animal = result; 
-    }); 
-  } */
   
 
 }

@@ -43,3 +43,8 @@ button[disabled]{
     color: green;
     font-size: 15px;
 }
+
+.leaderboard-unavailable-msg{
+    color: red;
+    font-size: 15px;
+}

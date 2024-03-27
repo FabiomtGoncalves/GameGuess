@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { GamesService } from '../games.service';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-leaderboard',
@@ -9,6 +8,8 @@ import { Injectable } from '@angular/core';
   styleUrl: './leaderboard.component.css'
 })
 export class LeaderboardComponent {
+
+  filteredLeaderboard: Leaderboard[] = [];
 
   public leaderboardArray: Leaderboard[] = [];
 
@@ -18,6 +19,18 @@ export class LeaderboardComponent {
 
   constructor(private http: HttpClient) { 
     this.readCSV();
+    this.filteredLeaderboard = this.leaderboardArray;
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredLeaderboard = this.leaderboardArray;
+      return;
+    }
+  
+    this.filteredLeaderboard = this.leaderboardArray.filter(
+      userLocation => userLocation.user.toLowerCase().includes(text.toLowerCase())
+    );
   }
 
   readCSV(){
@@ -38,7 +51,12 @@ export class LeaderboardComponent {
     );
   }
 
+
+  writeToSCSV(){
+  }
+
 }
+
 
 export class Leaderboard{
   user: String;

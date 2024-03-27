@@ -2,9 +2,14 @@
 <div class="page">
   <h1 class="title">Leaderboard</h1>
 
+  <p class="unavailable">Leaderboard currently unavailable to upload to data. [no-cloud-storage]</p>
+
+  <input class="searchUser" type="text" placeholder="Search by user" #filter (input)="filterResults(filter.value)">
+
+
   <br/><br/>
 
-  <div *ngFor="let row of leaderboardArray; index as i">
+  <div *ngFor="let row of filteredLeaderboard; index as i">
 
     <div [ngSwitch]="i">
       <div *ngSwitchCase="0" class="firstPlace">
