@@ -4,4 +4,19 @@
 
 > [!NOTE]
 > Project developed with Angular.  
-> Dataset: [Popular Video Games (1980 - 2023)](https://www.kaggle.com/datasets/arnabchaki/popular-video-games-1980-2023/).
+> Dataset: [Popular Video Games (1980 - 2023)](https://www.kaggle.com/datasets/arnabchaki/popular-video-games-1980-2023/).  
+
+### Home/Play
+![Home](https://raw.githubusercontent.com/FabiomtGoncalves/GameGuess/master/github-imgs/home.png?raw=true)  
+  
+
+### Game Over
+![GameOver](https://raw.githubusercontent.com/FabiomtGoncalves/GameGuess/master/github-imgs/gameover.png?raw=true)  
+  
+
+### Settings
+![Settings](https://raw.githubusercontent.com/FabiomtGoncalves/GameGuess/master/github-imgs/settings.png?raw=true)  
+  
+
+### Leaderboard
+![Leaderboard](https://raw.githubusercontent.com/FabiomtGoncalves/GameGuess/master/github-imgs/leaderboard.png?raw=true)  
