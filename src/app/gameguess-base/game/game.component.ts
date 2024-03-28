@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GamesService } from '../games.service';
 import { MatDialog } from '@angular/material/dialog'; 
 import { GameoverComponent } from '../gameover/gameover.component';
+import { GamePopupComponent } from '../game-popup/game-popup.component';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class GameComponent {
   ratingStar: string = "assets/star.png";
   date: string = "assets/clock.png";
   glitchPath: string = "assets/static.gif";
+  reviews: string = "assets/reviews.png";
+  help: string = "assets/question_mark.png";
 
   wrongSound: string = "assets/sounds/wrong-sound.mp3";
   rightSound: string = "assets/sounds/right-sound.mp3";
@@ -34,6 +37,20 @@ export class GameComponent {
   openDialog(){
     this.dialogRef.open(GameoverComponent, {
       disableClose: true,
+    });
+  }
+
+  openDialogReviews(){
+    this._gamesService.popup = "reviews";
+    this.dialogRef.open(GamePopupComponent, {
+      width: '50%',
+      height: '50%',
+    });
+  }
+
+  openDialogHelp(){
+    this._gamesService.popup = "help";
+    this.dialogRef.open(GamePopupComponent, {
     });
   }
 

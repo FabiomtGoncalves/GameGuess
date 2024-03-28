@@ -1,0 +1,36 @@
+
+<div class="popup">
+    
+    <div *ngIf="_gamesService.popup == 'reviews'; else help">
+        <h1 class="title">Game Reviews</h1>
+        <div *ngFor="let review of _gamesService.reviews; index as i">
+            <p><b>Review {{i+1}}:</b></p>
+            <p>{{review}}</p>
+        </div>
+    </div>
+    
+    
+    <ng-template #help>
+        <div class="pad">
+            <h1 class="title">Help</h1>
+            <p>Guess the game title letter by letter.</p>
+            <hr/>
+            <p class="date"><img class="icons" [src]="date" /> <b>-</b> Game release date</p>
+            <hr/>
+            <p class="team">'(orange-letters)' <b>-</b> Game developer team</p>
+            <hr/>
+            <p class="rating"><img class="icons" [src]="ratingStar" /> <b>-</b> Game rating</p>
+            <hr/>
+            <p><img class="icons" [src]="reviews" /> <b>-</b> Some User reviews about the game</p>
+        </div>
+    </ng-template>
+
+
+    <br>
+    <div class="txt-center">
+        <button (click)="close()">Close</button>
+    </div>
+</div>
+<!--<p class="leaderboard-shared-msg">{{leaderboardSuccess}}</p>-->
+
+

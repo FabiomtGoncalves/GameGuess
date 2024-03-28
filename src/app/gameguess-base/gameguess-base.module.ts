@@ -18,6 +18,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { CommonModule } from '@angular/common';
 import { GameoverComponent } from './gameover/gameover.component';
+import { GamePopupComponent } from './game-popup/game-popup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GameoverComponent } from './gameover/gameover.component';
     LeaderboardComponent,
     AboutComponent,
     GameoverComponent,
+    GamePopupComponent,
   ],
   imports: [
     CommonModule,

@@ -168,6 +168,33 @@ input{
 .tv-btn{
     border-radius: 50px;
     position: absolute;
-    top: 35%;
-    right: 160px;
+    top: 38.5%;
+    left: 73.5%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    color: white;
+    cursor: pointer;
+    height: 130px;
+    width: 130px;
+}
+
+.review-img{
+    margin: auto;
+    width: 20px;
+    height: 20px;
+}
+
+
+.top-left {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+}
+  
+.help {
+    background-color: purple;
+    color: white;
+    border-radius: 50px;
 }

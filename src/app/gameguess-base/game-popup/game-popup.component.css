@@ -1,0 +1,42 @@
+*{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.title{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.txt-center{
+    text-align: center;
+    justify-content: center;
+}
+
+.icons {
+    width: 16px;
+}
+
+.pad{
+    padding: 15px;
+}
+
+.rating{
+    color: yellow;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
+}
+
+.date{
+    color: #006df3;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
+}
+
+.team{
+    color: orange;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
+}

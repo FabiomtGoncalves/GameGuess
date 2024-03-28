@@ -23,6 +23,11 @@ export class GamesService {
   public lives: number = 3;
   public score: number = 0;
 
+  public reviews: string[] = [];
+  public reviews2: string[] = [];
+
+  public popup: string = "";
+
   constructor(private http: HttpClient) { 
     this.readCSV();
   }
@@ -73,6 +78,14 @@ export class GamesService {
     for(let i = 0; i < this.gameChars.length; i++){
       this.rightLetters.push("?");
     }
+
+    this.reviews = this.rndGame.reviews.split("'; '");
+
+    //var changed = this.reviews.map(seg => seg.replace('' + this.rndGame.title, '<game-name>') );
+
+    //this.reviews2 = this.reviews.replace(/'/g, "");
+    //console.log("REVIEWS: " + changed);
+
   }
 
 
@@ -86,6 +99,7 @@ export class GamesService {
   resetValues(){
     //this.gameArray = [];     SO DA RESET QUANDO SE PERDER OU REINICIAR
     this.rndGame = new Game("", "", "", "", "", "", "");
+    this.reviews = [];
     this.gameChars = [];
     this.rightLetters  = [];
     this.wrongLetters = [];

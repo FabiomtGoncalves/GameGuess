@@ -12,6 +12,10 @@
             <img class="image1" [src]="glitchPath" /> 
             <img class="image2" [src]="imagePath" />
           </div>
+
+          <div class="top-left">
+            <button (click)="openDialogHelp()" class="help"><img class="rating" [src]="help" /> Help</button>
+          </div>
             
          <div *ngIf="!hideGameInfo" class="centered">
             <p class="date"><img class="rating" [src]="date" /> {{_gamesService.rndGame.releaseDate}}</p>
@@ -20,7 +24,7 @@
             <p class="rating-txt"><img class="rating" [src]="ratingStar" /> {{_gamesService.rndGame.rating}}</p> 
          </div>
 
-         <button class="tv-btn">A</button>
+         <button (click)="openDialogReviews()" class="tv-btn"><img class="review-img" [src]="reviews" /></button>
 
        </div>
     </div>
