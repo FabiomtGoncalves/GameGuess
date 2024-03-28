@@ -18,6 +18,7 @@ export class GameComponent {
   glitchPath: string = "assets/static.gif";
   reviews: string = "assets/reviews.png";
   help: string = "assets/question_mark.png";
+  enter: string = "assets/enter_key.png";
 
   wrongSound: string = "assets/sounds/wrong-sound.mp3";
   rightSound: string = "assets/sounds/right-sound.mp3";
@@ -53,6 +54,7 @@ export class GameComponent {
     this.dialogRef.open(GamePopupComponent, {
     });
   }
+
 
   playAudio(audioLink: string){
     if(this._gamesService.soundSetting == "ON"){

@@ -52,7 +52,7 @@
       <br/>
 
       <div class="txt-center">
-         <p><b>Game :</b> {{_gamesService.rndGame.title}}</p>
+         <p>Guess a letter and press "<b>Enter</b>"</p>
          
          <form (submit)="onSubmitLetter()">
             <input required class="answer" type="text" autofocus [maxLength]="1" [(ngModel)]="letterGuess" id="letterGuess" name="letterGuess" autocomplete="off" oninput="this.value = this.value.toUpperCase()"> 

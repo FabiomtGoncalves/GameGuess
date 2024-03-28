@@ -1,5 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
+import { UsernamepopupComponent } from "./usernamepopup/usernamepopup.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class GamesService {
 
   public gameChars: string[] = [];
   private rndNum: number = 0;
-  public username : string = "<User>";
+  public username : string = "";
   public soundSetting: string = "ON";
 
   public spaces: number[] = [];
@@ -28,7 +30,7 @@ export class GamesService {
 
   public popup: string = "";
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private dialogRef: MatDialog) { 
     this.readCSV();
   }
 

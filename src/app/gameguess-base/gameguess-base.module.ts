@@ -19,6 +19,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CommonModule } from '@angular/common';
 import { GameoverComponent } from './gameover/gameover.component';
 import { GamePopupComponent } from './game-popup/game-popup.component';
+import { UsernamepopupComponent } from './usernamepopup/usernamepopup.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { GamePopupComponent } from './game-popup/game-popup.component';
     AboutComponent,
     GameoverComponent,
     GamePopupComponent,
+    UsernamepopupComponent,
   ],
   imports: [
     CommonModule,

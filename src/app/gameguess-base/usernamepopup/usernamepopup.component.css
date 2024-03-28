@@ -1,0 +1,16 @@
+*{
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.error{
+    font-size: 15px;
+    color: red;
+}
+
+button{
+    background-color: green;
+    color: white;
+}

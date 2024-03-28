@@ -198,3 +198,7 @@ input{
     color: white;
     border-radius: 50px;
 }
+
+.enter-key{
+    width: 30px;
+}

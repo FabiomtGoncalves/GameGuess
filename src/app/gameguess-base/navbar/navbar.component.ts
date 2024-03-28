@@ -1,6 +1,7 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { GamesService } from '../games.service';
 import { MatDialog } from '@angular/material/dialog';
+import { UsernamepopupComponent } from '../usernamepopup/usernamepopup.component';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class NavbarComponent {
   githubUrl: string = "https://github.com/FabiomtGoncalves/GameGuess";
 
 
-  constructor(public _gameService : GamesService, private dialog: MatDialog) { }
+  constructor(public _gameService : GamesService, private dialog: MatDialog) { 
+    this.usernameCheck();
+  }
 
   @ViewChild('secondDialog', { static: true })
   secondDialog!: TemplateRef<any>;
@@ -34,5 +37,12 @@ export class NavbarComponent {
     this.dialog.open(this.secondDialog);
   }
   
+  usernameCheck(){
+    if(this._gameService.username.trim() == ""){
+      this.dialog.open(UsernamepopupComponent, {
+        disableClose: true,
+      });
+    }
+  }
 
 }

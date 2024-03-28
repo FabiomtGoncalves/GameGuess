@@ -40,3 +40,12 @@
     color: orange;
     text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black; 
 }
+
+.small{
+    font-size: 12px;
+    text-align: center;
+}
+
+.txt-center{
+    text-align: center;
+}
